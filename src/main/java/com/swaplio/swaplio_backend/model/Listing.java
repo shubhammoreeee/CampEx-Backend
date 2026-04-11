@@ -50,7 +50,8 @@ public class Listing {
 
     private LocalDateTime deletedAt;
 
-    @OneToMany(mappedBy = "listing")
+    @Builder.Default
+    @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ListingImage> images = new ArrayList<>();
 
     @CreationTimestamp
